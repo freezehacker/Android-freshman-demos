@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViews();
         activateViews();
 
+        Logger.log("MainActivity context: " + this);
     }
 
     private void findViews() {

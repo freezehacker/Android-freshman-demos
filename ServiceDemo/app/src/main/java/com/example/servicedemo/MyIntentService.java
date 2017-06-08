@@ -12,7 +12,7 @@ public class MyIntentService extends IntentService {
 
     public MyIntentService() {
         super("MyIntentService");
-        Logger.log("MyIntentService()");
+        Logger.log("MyIntentService(), context: " + this);
     }
 
     public MyIntentService(String name) {

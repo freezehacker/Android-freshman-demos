@@ -36,7 +36,7 @@ public class MyService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Logger.log("MyService onCreate");
+        Logger.log("MyService onCreate, context: " + this);
 
         Intent intent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
