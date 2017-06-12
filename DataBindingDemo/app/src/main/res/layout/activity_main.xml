@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.example.databindingdemo.User" />
+
+        <variable
+            name="handler"
+            type="com.example.databindingdemo.MainActivity.MethodReferenceHandler" />
+
+        <variable
+            name="listener"
+            type="com.example.databindingdemo.MainActivity.ListenerBindingHandler" />
+    </data>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.databindingdemo.MainActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{user.username}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{user.password}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{handler::clickAlice}"
+            android:text="Alice（Method Reference方式）" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{handler::clickBob}"
+            android:text="Bob（Method Reference方式）" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{ (view) -> listener.onPrintUser(user, view, System.currentTimeMillis()) }"
+            android:text="Just click（Listener Binding方式）" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{handler::toSecond}"
+            android:text="跳转到SecondActivity（Method Reference方式）" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:url="@{user.imageUrl}" />
+
+    </LinearLayout>
+</layout>
